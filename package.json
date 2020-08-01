@@ -1,0 +1,25 @@
+{
+  "name": "@sbovyrin/webpack-mini",
+  "author": "Sergey Bovyrin <sbovyrin@gmail.com>",
+  "version": "1.0.0",
+  "description": "Minimal config that is easy extending when it's necessary",
+  "main": "dist/webpack-mini.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sbovyrin/webpack-mini.git"
+  },
+  "bugs": {
+    "url": "https://github.com/sbovyrin/webpack-mini/issues"
+  },
+  "homepage": "https://github.com/sbovyrin/webpack-mini",
+  "keywords": ["webpack", "web-config", "default-config", "config"],
+  "license": "MIT",
+  "dependencies": {},
+  "devDependencies": {
+    "webpack": "^4.44.0",
+    "webpack-cli": "^3.3.12"
+  },
+  "scripts": {
+    "build": "webpack --progress --env.prod"
+  }
+}
