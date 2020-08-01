@@ -1,5 +1,8 @@
 # `webpack-mini`
 
+Minimal config that is easy extending when it's necessary
+
+
 ## Quick start
 
 1. Create main js file in `src` directory: `/src/index.js`
@@ -19,3 +22,7 @@
 7. Build the project for production: `npx webpack --env.prod`
     - output files are located in `/dist` directory
 
+
+## Features
+
+Work in progress...
