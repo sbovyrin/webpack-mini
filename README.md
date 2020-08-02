@@ -1,6 +1,11 @@
 # `webpack-mini`
 
-Minimal config that is easy extending when it's necessary
+Minimal config that is easy extending when it's necessary.
+
+By default:
+- input file `index.js` must be located in `src` directory
+- html-template file must be located in project root
+- output files are located in `dist` directory
 
 
 ## Quick start
@@ -10,7 +15,7 @@ Minimal config that is easy extending when it's necessary
 3. Create `webpack.config.js` file in your project root
     - add next code to the file:
         ```javascript
-        const defaultConfig = require('@sbovyrin/webpack-mini');
+        const { defaultConfig } = require('@sbovyrin/webpack-mini');
         
         module.exports = defaultConfig();
         ```
@@ -25,4 +30,34 @@ Minimal config that is easy extending when it's necessary
 
 ## Features
 
-Work in progress...
+- Ready to work out of the box
+- Easy to customize
+- Output separate files
+    - app.js (your application)
+    - vendor.js (app's dependencies)
+    - runtime.js (wepback runtime)
+    - styles.css (app's CSS)
+- Production files are optimized (including tree-shaking)
+- Hot server reload for development
+- Lightweight and low resource consumer
+
+
+## Customize
+
+- Create `webpack.config.js` file
+    ```javascript
+    const { defaultConfig } = require('@sbovyrin/webpack-mini');
+
+    module.exports = defaultConfig();
+    ```
+- Create your customized config function
+    ```javascript
+    function customizeConfig(env) {
+      return {
+        entry: 'mysource/app.js'
+      }
+    }
+
+    module.exports = defaultConfig(customizeConfig);
+    ```
+- Now your entry point is `mysource/app.js`

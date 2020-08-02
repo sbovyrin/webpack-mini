@@ -1,6 +1,8 @@
 const path = require('path');
+
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 function applyDevConfig(port = 3000, isHot = true) {
   return {
@@ -27,7 +29,7 @@ function applyProdConfig() {
   }
 }
 
-module.exports = function defaultConfig() {
+function defaultConfig(extendFn = null) {
   return (env) => ({
     // result files: one pair -> one file
     entry: {
@@ -35,12 +37,15 @@ module.exports = function defaultConfig() {
     },
     output: {
       // [name] replaces to one of entry keys
-      // [hash] hash of a file content, used to cache
-      filename: '[name].[hash].js',
+      // [hash] hash of a file content
+      filename: env.prod ? '[name].js' : '[name][hash].js',
       // location of result files 
       path: path.resolve(__dirname, 'dist'),
     },
     plugins: [
+      new MiniCssExtractPlugin({
+        filename: env.prod ? '[name].css' : '[name].[hash].css'
+      }),
       // auto-removing "dist" directory before every build
       new CleanWebpackPlugin(),
       new HtmlWebpackPlugin({
@@ -49,7 +54,20 @@ module.exports = function defaultConfig() {
     ],
     module: {
       rules: [
-        {test: /\.css$/, use: ['style-loader', 'css-loader']},
+        {
+          test: /\.css$/,
+          use: [
+            {
+              loader: MiniCssExtractPlugin.loader,
+              options: {hmr: !env.prod, reloadAll: true, esModule: true}
+            },
+            {
+              loader: 'css-loader',
+              options: {import: true}
+            }
+          ],
+          sideEffects: true
+        },
         {test: /\.(png|svg|jpg|gif)$/, use: ['file-loader']},
         {test: /\.(woff|woff2|eot|ttf|otf)$/, use: ['file-loader']}
       ]
@@ -64,6 +82,12 @@ module.exports = function defaultConfig() {
             test: /[\\/]node_modules[\\/]/,
             name: 'vendors',
             chunks: 'all'
+          },
+          styles: {
+            test: /\.css$/,
+            name: 'styles',
+            chunks: 'all',
+            enforce: true
           }
         }
       },
@@ -85,6 +109,9 @@ module.exports = function defaultConfig() {
       timings: true,
       usedExports: true
     },
-    ...((env.prod) ? applyProdConfig() : applyDevConfig(env.port, env.hot))
+    ...((env.prod) ? applyProdConfig() : applyDevConfig(env.port, env.hot)),
+    ...(extendFn ? extendFn(env) : {})
   })
 }
+
+module.exports = { defaultConfig }
