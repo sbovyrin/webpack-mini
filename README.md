@@ -1,9 +1,9 @@
 # `webpack-mini`
 
-[![MIT license](http://img.shields.io/badge/license-MIT-brightgreen.svg)](http://opensource.org/licenses/MIT)
-![npm](https://img.shields.io/npm/dm/@sbovyrin/webpack-mini?style=for-the-badge)
-![GitHub issues](https://img.shields.io/github/issues/sbovyrin/webpack-mini?style=for-the-badge)
-![npm (scoped)](https://img.shields.io/npm/v/@sbovyrin/webpack-mini?color=brightgreen&style=for-the-badge)
+![NPM](https://img.shields.io/npm/l/@sbovyrin/webpack-mini?color=green&style=flat-square)
+![npm](https://img.shields.io/npm/dm/@sbovyrin/webpack-mini?color=green&style=flat-square)
+![GitHub issues](https://img.shields.io/github/issues/sbovyrin/webpack-mini?color=green&style=flat-square)
+![npm (scoped)](https://img.shields.io/npm/v/@sbovyrin/webpack-mini?color=green&style=flat-square)
 
 
 Minimal webpack config that is easy extending when it's necessary.
