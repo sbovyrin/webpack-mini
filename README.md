@@ -5,6 +5,7 @@
 ![GitHub issues](https://img.shields.io/github/issues/sbovyrin/webpack-mini?color=green&style=flat-square)
 ![npm (scoped)](https://img.shields.io/npm/v/@sbovyrin/webpack-mini?color=green&style=flat-square)
 
+> Read [Changelog](CHANGELOG.md) before updating!
 
 Minimal webpack config that is easy extending when it's necessary.
 
