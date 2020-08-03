@@ -2,7 +2,7 @@
   "name": "@sbovyrin/webpack-mini",
   "author": "Sergey Bovyrin <sbovyrin@gmail.com>",
   "version": "1.1.0",
-  "description": "Minimal config that is easy extending when it's necessary",
+  "description": "Minimal webpack config that is easy extending when it's necessary",
   "main": "dist/webpack-mini.js",
   "repository": {
     "type": "git",

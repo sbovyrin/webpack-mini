@@ -1,6 +1,12 @@
 # `webpack-mini`
 
-Minimal config that is easy extending when it's necessary.
+[![MIT license](http://img.shields.io/badge/license-MIT-brightgreen.svg)](http://opensource.org/licenses/MIT)
+![npm](https://img.shields.io/npm/dm/@sbovyrin/webpack-mini?style=for-the-badge)
+![GitHub issues](https://img.shields.io/github/issues/sbovyrin/webpack-mini?style=for-the-badge)
+![npm (scoped)](https://img.shields.io/npm/v/@sbovyrin/webpack-mini?color=brightgreen&style=for-the-badge)
+
+
+Minimal webpack config that is easy extending when it's necessary.
 
 By default:
 - input file `index.js` must be located in `src` directory
@@ -44,6 +50,7 @@ By default:
 
 ## Customize
 
+### Change entry configuration
 - Create `webpack.config.js` file
     ```javascript
     const { defaultConfig } = require('@sbovyrin/webpack-mini');
@@ -52,6 +59,7 @@ By default:
     ```
 - Create your customized config function
     ```javascript
+    // here 'env' has value passed to --env (i.e '--env.prod' in script command)
     function customizeConfig(env) {
       return {
         entry: 'mysource/app.js'
@@ -61,3 +69,7 @@ By default:
     module.exports = defaultConfig(customizeConfig);
     ```
 - Now your entry point is `mysource/app.js`
+
+### Using React.js
+
+Comming soon...
