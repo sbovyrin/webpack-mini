@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.1.1 - 2020-08-07
+
+### Fixed
+- Package dependencies
+- Broken startup
+
 ## 1.1.0 - 2020-08-04
 
 ### Added
