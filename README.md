@@ -26,12 +26,10 @@ By default:
         
         module.exports = defaultConfig();
         ```
-4. Install *webpack-mini*: `npm i --save-dev @sbovyrin/webpack-mini`
-5. Install *webpack*: `npm i --save-dev webpack webpack-cli`
-    - optionally: `npm i --save-dev webpack-dev-server`
-6. Start development server: `npx webpack --watch --env.dev`
+4. Optionally install webpack-dev-server: `npm i --save-dev webpack-dev-server`
+5. Start development server: `npx webpack --watch --env.dev`
     - or: `npx webpack-dev-server --env.dev`
-7. Build the project for production: `npx webpack --env.prod`
+6. Build the project for production: `npx webpack --env.prod`
     - output files are located in `/dist` directory
 
 
