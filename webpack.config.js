@@ -9,11 +9,13 @@ module.exports = {
     libraryTarget: 'umd',
     globalObject: 'this'
   },
+  target: 'node',
   externals: [
     'clean-webpack-plugin',
     'html-webpack-plugin',
     'css-loader',
     'file-loader',
-    'style-loader'
+    'style-loader',
+    'mini-css-extract-plugin'
   ]
 }
